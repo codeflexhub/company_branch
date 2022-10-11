@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    
+    <record id="company_form_inherit" model="ir.ui.view">
+      <field name="name">res.company.form</field>
+      <field name="model">res.company</field>
+      <field name="inherit_id" ref="base.view_company_form"/>
+      <field name="priority" eval="100"/>
+      <field name="arch" type="xml">
+        <xpath expr="//notebook/page[@name='general_info']" position="after">
+          <page name="branch_ids" string="Branches">
+          <field name="branch_ids">
+            <tree>
+              <field name="name"/>
+              <field name="latitude_coordinates"/>
+              <field name="longitude_coordinates"/>
+              <field name="tolerance_area"/>
+            </tree>
+          </field>
+          </page>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

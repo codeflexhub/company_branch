@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="branch_form_view" model="ir.ui.view">
+      <field name="name">branch.branch.form</field>
+      <field name="model">branch.branch</field>
+      <field name="arch" type="xml">
+        <form string="ModelTitle">
+          <sheet>
+            <group>
+              <field name="name" />
+            </group>
+            <group>
+              <group>
+                <field name="latitude_coordinates" />
+              </group>
+              <group>
+                <field name="longitude_coordinates" />
+              </group>
+            </group>
+            <group>
+              <field name="tolerance_area" />
+            </group>
+            <group>
+              <field name="employee_ids" readonly="1">
+                <tree>
+                  <field name="name" />
+                </tree>
+              </field>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="branch_tree_view" model="ir.ui.view">
+      <field name="name">branch.branch.tree</field>
+      <field name="model">branch.branch</field>
+      <field name="arch" type="xml">
+        <tree string="Branches">
+          <field name="name" />
+          <field name="latitude_coordinates" />
+          <field name="longitude_coordinates" />
+        </tree>
+      </field>
+    </record>
+
+
+    <record id="branch_act_window" model="ir.actions.act_window">
+      <field name="name">ModelTitle</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">branch.branch</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          There is no examples click here to add new ModelTitle.
+        </p>
+      </field>
+    </record>
+
+
+  </data>
+</odoo>
